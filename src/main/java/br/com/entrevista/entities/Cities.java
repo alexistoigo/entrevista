@@ -18,7 +18,7 @@ public class Cities {
     private String uf;
 
     @OneToMany
-    @JoinColumn(name = "cities_id")
+    @JoinColumn(name = "city_id")
     private List<Client> clients;
 
 }

@@ -15,7 +15,7 @@ public class Client {
 
     private String name;
 
-    private Integer sex;
+    private String sex;
 
     private String dateBirth;
 
