@@ -14,7 +14,7 @@ public class Client {
 
     private String name;
 
-    private String sex;
+    private String gender;
 
     private String dateBirth;
 
@@ -22,5 +22,10 @@ public class Client {
 
     @ManyToOne
     private Cities city;
+
+    @Override
+    public String toString() {
+        return "Client{" + "id=" + id + ", name=" + name + ", gender=" + gender + ", dateBirth=" + dateBirth + ", age=" + age + ", cities=" + city + '}';
+    }
 
 }

@@ -1,10 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title> Cadastrar Cliente</title>
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
 </head>
-<body>
 
+<body>
+<div class="container">
+    <h1>Cadastrar Cliente</h1>
+
+    <form th:object="${client}" th:action="@{/client/save}" method="post">
+        <div class="form-row">
+            <div class="col-md-4 mb-3">
+                <label for="name">Nome</label>
+                <input th:field="*{name}" type="text" class="form-control" id="name" placeholder="Nome"/>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-4 mb-3">
+                <label for="gender">Genero</label>
+                <select th:field="*{gender}" id="gender">
+                    <option th:value="Feminino" th:text="Feminino"></option>
+                    <option th:value="Masculino" th:text="Masculino"></option>
+                    <option th:value="Outro" th:text="Outro"></option>
+                </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-4 mb-3">
+                <label for="dateBirth">Nascimento</label>
+                <input th:field="*{dateBirth}" type="text" class="form-control" id="dateBirth" placeholder="dd/mm/aa"/>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-4 mb-3">
+                <label for="age">Idade</label>
+                <input th:field="*{age}" type="number" class="form-control" id="age" placeholder="Idade"/>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-4 mb-3">
+                <label for="cities">Cidade</label>
+                <select th:field="*{city.id}" class="chosen-select form-control" id="cities" data-placeholder="Cidade">
+                    <option th:each="city : ${cities}" th:value="${city.id}"
+                            th:text="${city.city}">
+                    </option>
+                </select>
+            </div>
+        </div>
+
+        <a class="btn" href="/client/list">Voltar</a>
+        <button class="btn btn-success" type="submit">Salvar</button>
+    </form>
+</div>
+
+<script src="http://code.jquery.com/jquery.js"></script>
+<script src="/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
