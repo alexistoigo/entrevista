@@ -2,6 +2,7 @@ package br.com.entrevista.controllers;
 
 import br.com.entrevista.Services.CitiesService;
 import br.com.entrevista.Services.ClientService;
+import lombok.extern.slf4j.Slf4j;
 import br.com.entrevista.entities.Client;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -11,6 +12,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.Optional;
+
+@Slf4j
 @Controller
 @RequestMapping("/client")
 @AllArgsConstructor
@@ -61,6 +65,22 @@ public class ClientController {
         clientService.save(client);
 
         return "redirect:/client/list";
+    }
+
+    @GetMapping("/{id}/listId")
+    public String findById(@PathVariable("id") Long id, Model model) {
+
+        model.addAttribute("client", clientService.findById(id));
+
+        return "/client/list";
+    }
+
+    @GetMapping("/{name}/listName")
+    public String findByName(@PathVariable("name") String name, Model model) {
+
+        model.addAttribute("client", clientService.findByName(name));
+
+        return "/client/list";
     }
 
 }
