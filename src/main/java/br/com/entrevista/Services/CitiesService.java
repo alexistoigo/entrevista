@@ -10,6 +10,10 @@ public interface CitiesService {
 
     Cities findById(Long id);
 
+    List<Cities> findByUf(String uf);
+
+    List<Cities> findByCity(String city);
+
     List<Cities> findAll();
 
     void removeById(Long id);

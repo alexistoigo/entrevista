@@ -38,6 +38,11 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
+    public List<Client> findByName(String name) {
+        return this.clientRepository.findByName(name);
+    }
+
+    @Override
     public void removeById(Long id) {
         this.clientRepository.deleteById(id);
     }

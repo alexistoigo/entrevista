@@ -38,6 +38,18 @@ public class CitiesServiceImpl implements CitiesService {
     }
 
     @Override
+    public List<Cities> findByUf(String uf) {
+
+        return this.citiesRepository.findByUf(uf);
+    }
+
+    @Override
+    public List<Cities> findByCity(String city) {
+
+        return this.citiesRepository.findByCity(city);
+    }
+
+    @Override
     public void removeById(Long id) {
         this.citiesRepository.deleteById(id);
     }
