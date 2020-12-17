@@ -11,9 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.sql.SQLOutput;
-import java.util.Spliterator;
-
 @Controller
 @RequestMapping("/client")
 @AllArgsConstructor
@@ -32,13 +29,21 @@ public class ClientController {
         return "client/list";
     }
 
-    @GetMapping("{id}/edit")
+    @GetMapping("/{id}/edit")
     public String edit(@PathVariable("id") Long id, Model model) {
 
         model.addAttribute("client", clientService.findById(id));
         model.addAttribute("cities", citiesService.findAll());
 
         return "/client/form";
+    }
+
+    @GetMapping("/{id}/delete")
+    public String delete(@PathVariable("id") Long id) {
+
+        clientService.removeById(id);
+
+        return "redirect:/client/list";
     }
 
     @GetMapping("/new")

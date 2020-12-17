@@ -15,11 +15,13 @@
     <table class="table table-bordered table-striped">
         <thead>
         <tr>
+            <th>ID</th>
             <th>Nome</th>
             <th>Genero</th>
             <th>Nascimento</th>
             <th>Idade</th>
             <th>Cidade</th>
+            <th>UF</th>
             <th>Ações</th>
         </tr>
         </thead>
@@ -27,14 +29,17 @@
 
         <th:block th:each="client : ${client}">
             <tr>
+                <td th:text="${client.id}"></td>
                 <td th:text="${client.name}"></td>
                 <td th:text="${client.gender}"></td>
                 <td th:text="${client.dateBirth}"></td>
-                <td th:text="${client.age}">9</td>
+                <td th:text="${client.age}"></td>
                 <td th:text="${client.city.city}"></td>
+                <td th:text="${client.city.uf}"></td>
                 <td>
                     <a th:href="@{'/client/' + ${client.id} + '/edit'}" href="#">Editar</a>
-                    <a href="#">Excluir</a>
+                    <a th:href="@{'/client/' + ${client.id} + '/delete'}"
+                       th:onclick="'return confirm(\'Excluir este cliente?\')'" href="#">Excluir</a>
                 </td>
             </tr>
         </th:block>
