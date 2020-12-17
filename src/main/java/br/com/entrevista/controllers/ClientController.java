@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -31,6 +32,15 @@ public class ClientController {
         return "client/list";
     }
 
+    @GetMapping("{id}/edit")
+    public String edit(@PathVariable("id") Long id, Model model) {
+
+        model.addAttribute("client", clientService.findById(id));
+        model.addAttribute("cities", citiesService.findAll());
+
+        return "/client/form";
+    }
+
     @GetMapping("/new")
     public String newClient(Model model) {
 
@@ -42,8 +52,6 @@ public class ClientController {
 
     @PostMapping("/save")
     public String save(Client client) {
-
-        System.out.println(client);
 
         clientService.save(client);
 

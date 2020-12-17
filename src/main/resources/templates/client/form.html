@@ -11,6 +11,7 @@
     <h1>Cadastrar Cliente</h1>
 
     <form th:object="${client}" th:action="@{/client/save}" method="post">
+        <input th:field="*{id}" type="hidden" id="id" />
         <div class="form-row">
             <div class="col-md-4 mb-3">
                 <label for="name">Nome</label>

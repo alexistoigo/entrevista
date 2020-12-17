@@ -1,6 +1,7 @@
 package br.com.entrevista.entities;
 
 import lombok.Data;
+import org.springframework.lang.NonNull;
 
 import javax.persistence.*;
 
