@@ -10,3 +10,15 @@ Objetivo criar uma aplicação utilizando Java e Spring Boot para um pequeno con
 - Bootstrap
 - Thymeleaf
 - Banco H2 (memo)
+
+### Banco Access
+
+    http://localhost:8080/h2-console/
+
+    JDBC URL: jdbc:h2:mem:testdb
+
+    User Name: sa
+
+    Password: 
+
+
