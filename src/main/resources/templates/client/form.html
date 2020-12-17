@@ -11,7 +11,7 @@
     <h1>Cadastrar Cliente</h1>
 
     <form th:object="${client}" th:action="@{/client/save}" method="post">
-        <input th:field="*{id}" type="hidden" id="id" />
+        <input th:field="*{id}" type="hidden" id="id"/>
         <div class="form-row">
             <div class="col-md-4 mb-3">
                 <label for="name">Nome</label>
@@ -50,6 +50,8 @@
                 </select>
             </div>
         </div>
+
+        <a class="btn btn-primary" style="margin-bottom: 10px" href="/cities/new">Cadastrar Nova Cidade</a>
 
         <a class="btn" href="/client/list">Voltar</a>
         <button class="btn btn-success" type="submit">Salvar</button>

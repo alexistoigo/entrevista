@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @AllArgsConstructor
 public class ClientController {
 
-    private ClientService clientService;
+    private final ClientService clientService;
 
-    private CitiesService citiesService;
+    private final CitiesService citiesService;
 
 
     @GetMapping("/list")
