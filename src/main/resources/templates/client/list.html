@@ -10,6 +10,19 @@
 <div class="container">
     <h1>Listagem de Clientes</h1>
 
+
+    <div class="container">
+        <form th:object="${client}" method="get">
+            <input type="text" class="form-control" id="name" placeholder="Pesquisa"/>
+            <select id="type">
+                <option th:value="Todos" th:text="Todos"></option>
+                <option th:value="Nome" th:text="Nome"></option>
+                <option th:value="Id" th:text="Id"></option>
+            </select>
+            <a class="btn btn-primary" href="{$name}/{}">Pesquisar</a>
+        </form>
+    </div>
+
     <a class="btn btn-primary" style="margin-bottom: 10px" href="/client/new">Cadastrar</a>
 
     <table class="table table-bordered table-striped">

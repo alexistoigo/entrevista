@@ -13,26 +13,41 @@
 
     <a class="btn btn-primary" style="margin-bottom: 10px" href="/cities/new">Cadastrar</a>
 
-    <table class="table table-bordered table-striped">
-        <thead>
-        <tr>
-            <th>Cidade</th>
-            <th>UF</th>
-        </tr>
-        </thead>
-        <tbody>
+    <div class="container">
+        <h1>Cadastrar Cliente</h1>
 
-        <th:block th:each="city : ${cities}">
+        <div class="container">
+            <form th:object="${cities}" method="get">
+                <input type="text" class="form-control" id="name" placeholder="Pesquisa"/>
+                <select id="type">
+                    <option th:value="Todos" th:text="Todos"></option>
+                    <option th:value="Cidade" th:text="Cidade"></option>
+                    <option th:value="UF" th:text="UF"></option>
+                </select>
+                <a class="btn btn-primary" href="{}/{list}">Pesquisar</a>
+            </form>
+        </div>
+
+        <table class="table table-bordered table-striped">
+            <thead>
             <tr>
-                <td th:text="${city.city}"></td>
-                <td th:text="${city.uf}"></td>
+                <th>Cidade</th>
+                <th>UF</th>
             </tr>
-        </th:block>
-        </tbody>
-    </table>
-</div>
+            </thead>
+            <tbody>
 
-<script src="http://code.jquery.com/jquery.js"></script>
-<script src="/bootstrap/js/bootstrap.min.js"></script>
+            <th:block th:each="city : ${cities}">
+                <tr>
+                    <td th:text="${city.city}"></td>
+                    <td th:text="${city.uf}"></td>
+                </tr>
+            </th:block>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
