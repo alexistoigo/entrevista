@@ -1,13 +1,11 @@
 package br.com.entrevista.Services;
 
 import br.com.entrevista.Repositories.ClientRepository;
-import br.com.entrevista.entities.Cities;
 import br.com.entrevista.entities.Client;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
