@@ -17,10 +17,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @AllArgsConstructor
 public class CitiesController {
 
-    private final ClientService clientService;
-
     private final CitiesService citiesService;
 
+    @GetMapping("/list")
+    public String list(Model model) {
+
+        model.addAttribute("cities", citiesService.findAll());
+
+        return "cities/list";
+    }
 
     @GetMapping("/new")
     public String newCity(Model model) {
