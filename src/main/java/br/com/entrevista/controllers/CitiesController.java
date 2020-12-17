@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -35,6 +36,22 @@ public class CitiesController {
         citiesService.save(city);
 
         return "redirect:/client/new";
+    }
+
+    @GetMapping("/{city}/listName")
+    public String findByName(@PathVariable("city") String city, Model model) {
+
+        model.addAttribute("cities", citiesService.findByCity(city));
+
+        return "/cities/list";
+    }
+
+    @GetMapping("/{uf}/listUf")
+    public String findByUf(@PathVariable("uf") String uf, Model model) {
+
+        model.addAttribute("cities", citiesService.findByUf(uf));
+
+        return "/cities/list";
     }
 
 
